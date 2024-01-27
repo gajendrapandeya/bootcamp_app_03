@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:truth_and_dare/model/category.dart';
+import 'package:truth_and_dare/pages/select_category_page.dart';
+import 'package:truth_and_dare/pages/spin_wheel_page.dart';
 import 'package:truth_and_dare/utils/colors.dart';
 import 'package:truth_and_dare/widgets/add_player_dialog.dart';
 import 'package:truth_and_dare/widgets/button.dart';
@@ -19,8 +22,8 @@ class _AddPlayerPageState extends State<AddPlayerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          iconTheme: const IconThemeData(color: AppColor.whiteColor),
           backgroundColor: AppColor.primaryColor,
+          foregroundColor: AppColor.whiteColor,
         ),
         body: SafeArea(
           child: Padding(
@@ -55,10 +58,27 @@ class _AddPlayerPageState extends State<AddPlayerPage> {
                     ),
                   ),
                   const Spacer(),
-                  const PrimaryButton(
+                  PrimaryButton(
                     buttonText: 'Get Started',
                     buttonBackgroundColor: AppColor.whiteColor,
                     textColor: AppColor.primaryColor,
+                    onButtonTap: () async {
+                      final Category? selectedCategory = await Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const SelectCategoriesPage(),
+                        ),
+                      );
+                      if (selectedCategory != null && mounted) {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (_) => SpinWheelPage(
+                              players: _players,
+                              selectedCategory: selectedCategory,
+                            ),
+                          ),
+                        );
+                      }
+                    },
                   ),
                   const SizedBox(height: 64),
                 ],

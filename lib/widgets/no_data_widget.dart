@@ -14,7 +14,7 @@ class NoDataWidget extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 2,
-          child: SvgPicture.asset('assets/empty.svg'),
+          child: SvgPicture.asset('assets/svg/empty.svg'),
         ),
         const SizedBox(
           height: 32,
