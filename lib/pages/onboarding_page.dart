@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:truth_and_dare/pages/add_player_page.dart';
 import 'package:truth_and_dare/pages/color_wheel_page.dart';
-import 'package:truth_and_dare/theme/colors.dart';
+import 'package:truth_and_dare/utils/colors.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -9,7 +10,6 @@ class OnboardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.primaryColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
         child: Column(
@@ -58,7 +58,13 @@ class OnboardingPage extends StatelessWidget {
           color: AppColor.successColor,
         ),
         child: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const AddPlayerPage(),
+              ),
+            );
+          },
           icon: Icon(
             MdiIcons.chevronRight,
             size: 32,
