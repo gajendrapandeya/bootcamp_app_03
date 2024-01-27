@@ -39,9 +39,9 @@ class _AddPlayerPageState extends State<AddPlayerPage> {
                   const SizedBox(
                     height: 12,
                   ),
-                  const Text(
-                    'Players',
-                    style: TextStyle(
+                  Text(
+                    'Players (${_players.length})',
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                       color: AppColor.whiteColor,
@@ -57,12 +57,20 @@ class _AddPlayerPageState extends State<AddPlayerPage> {
                       itemCount: _players.length,
                     ),
                   ),
-                  const Spacer(),
                   PrimaryButton(
                     buttonText: 'Get Started',
                     buttonBackgroundColor: AppColor.whiteColor,
                     textColor: AppColor.primaryColor,
                     onButtonTap: () async {
+                      if (_players.length < 2) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            behavior: SnackBarBehavior.floating,
+                            content: Text('At least 2 players must be added to begin the game.'),
+                          ),
+                        );
+                        return;
+                      }
                       final Category? selectedCategory = await Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (_) => const SelectCategoriesPage(),

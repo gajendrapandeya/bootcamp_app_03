@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:truth_and_dare/widgets/name_wheel.dart';
 import 'package:truth_and_dare/pages/add_player_page.dart';
-import 'package:truth_and_dare/pages/color_wheel_page.dart';
 import 'package:truth_and_dare/utils/colors.dart';
 
 class OnboardingPage extends StatelessWidget {
@@ -20,7 +20,7 @@ class OnboardingPage extends StatelessWidget {
               child: SizedBox(
                 height: 200,
                 width: 200,
-                child: ColorWheel(
+                child: NameWheel(
                   players: ['', '', '', '', '', '', '', '', '', ''],
                   showWheelTip: false,
                 ),

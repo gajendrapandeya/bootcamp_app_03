@@ -18,9 +18,7 @@ class MainApp extends StatelessWidget {
         fontFamily: GoogleFonts.lato().fontFamily,
         scaffoldBackgroundColor: AppColor.primaryColor,
       ),
-      home: const Scaffold(
-        body: OnboardingPage(),
-      ),
+      home: const Scaffold(body: OnboardingPage()),
     );
   }
 }
