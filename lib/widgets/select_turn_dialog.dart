@@ -16,7 +16,7 @@ class SelectTurnDialog extends StatelessWidget {
       insetPadding: const EdgeInsets.symmetric(horizontal: 16),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 12),
+        padding: const EdgeInsets.only(left: 16, right: 16, top: 24, bottom: 16),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
@@ -37,7 +37,7 @@ class SelectTurnDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              height: 16,
+              height: 32,
             ),
             Row(
               children: [

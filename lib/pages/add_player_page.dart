@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:truth_and_dare/model/category.dart';
+import 'package:truth_and_dare/model/player.dart';
 import 'package:truth_and_dare/pages/select_category_page.dart';
 import 'package:truth_and_dare/pages/spin_wheel_page.dart';
 import 'package:truth_and_dare/utils/colors.dart';
@@ -16,7 +17,7 @@ class AddPlayerPage extends StatefulWidget {
 }
 
 class _AddPlayerPageState extends State<AddPlayerPage> {
-  final List<String> _players = [];
+  final List<Player> _players = [];
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +114,7 @@ class _AddPlayerPageState extends State<AddPlayerPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              _players[index],
+              _players[index].name,
               style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
             ),
             IconButton(
@@ -150,7 +151,7 @@ class _AddPlayerPageState extends State<AddPlayerPage> {
 
         if (playerNameOrNull != null && playerNameOrNull.isNotEmpty) {
           setState(() {
-            _players.add(playerNameOrNull);
+            _players.add(Player(name: playerNameOrNull));
           });
         }
       },
