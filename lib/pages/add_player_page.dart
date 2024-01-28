@@ -5,6 +5,7 @@ import 'package:truth_and_dare/model/player.dart';
 import 'package:truth_and_dare/pages/select_category_page.dart';
 import 'package:truth_and_dare/pages/spin_wheel_page.dart';
 import 'package:truth_and_dare/utils/colors.dart';
+import 'package:truth_and_dare/utils/pref_service.dart';
 import 'package:truth_and_dare/widgets/add_player_dialog.dart';
 import 'package:truth_and_dare/widgets/button.dart';
 import 'package:truth_and_dare/widgets/no_data_widget.dart';
@@ -18,6 +19,18 @@ class AddPlayerPage extends StatefulWidget {
 
 class _AddPlayerPageState extends State<AddPlayerPage> {
   final List<Player> _players = [];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      final List<Player> playerFromPrefs = await PrefService.getPlayers();
+      _players
+        ..clear()
+        ..addAll(playerFromPrefs);
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:truth_and_dare/pages/onboarding_page.dart';
+import 'package:truth_and_dare/pages/page_navigator.dart';
 import 'package:truth_and_dare/utils/colors.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
         fontFamily: GoogleFonts.lato().fontFamily,
         scaffoldBackgroundColor: AppColor.primaryColor,
       ),
-      home: const Scaffold(body: OnboardingPage()),
+      home: const Scaffold(body: PageNavigator()),
     );
   }
 }

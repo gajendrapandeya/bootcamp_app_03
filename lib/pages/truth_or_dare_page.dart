@@ -32,6 +32,7 @@ class _TruthOrDarePageState extends State<TruthOrDarePage> {
   late int dareCount = widget.category.truths.length;
 
   late int questionCount = isTruth ? truthCount : dareCount;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +112,7 @@ class _TruthOrDarePageState extends State<TruthOrDarePage> {
                 ),
               ),
               onButtonTap: () {
-                widget.currentPlayer.completedTruths();
+               isTruth ? widget.currentPlayer.completedTruths() : widget.currentPlayer.completedDares();
                 Navigator.of(context).pop(widget.currentPlayer);
               },
               buttonBackgroundColor: AppColor.primaryColor,
@@ -133,7 +134,7 @@ class _TruthOrDarePageState extends State<TruthOrDarePage> {
               buttonBackgroundColor: AppColor.whiteColor,
               textColor: AppColor.primaryColor,
               onButtonTap: () {
-                widget.currentPlayer.completedDares();
+                widget.currentPlayer.gaveUps();
                 Navigator.of(context).pop(widget.currentPlayer);
               },
             ),

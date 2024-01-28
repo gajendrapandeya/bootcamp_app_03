@@ -73,7 +73,7 @@ class Category {
 
 List<Category> categories = [
   Category(
-    id: 1,
+    id: 0,
     type: "Funny",
     truths: [
       "What's the silliest thing you've ever done in public?",
@@ -91,7 +91,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    id: 2,
+    id: 1,
     type: "Embarrassing",
     truths: [
       "What's the most embarrassing thing that happened to you in school?",
@@ -109,7 +109,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    id: 3,
+    id: 2,
     type: "Romantic",
     truths: [
       "What's the most romantic date you've ever been on?",
@@ -127,7 +127,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    id: 4,
+    id: 3,
     type: "Adventure",
     truths: [
       "What's the most adventurous thing you've ever done?",
@@ -145,7 +145,7 @@ List<Category> categories = [
     ],
   ),
   Category(
-    id: 5,
+    id: 4,
     type: "Foodie",
     truths: [
       "What's your favorite comfort food?",
